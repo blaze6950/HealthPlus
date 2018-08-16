@@ -1,0 +1,24 @@
+﻿<Window x:Class="HealthPlus.AddHuman"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthPlus"
+        mc:Ignorable="d"
+        Title="Add Human" Height="149.236" Width="231.724" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="pill.png">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CustomButton.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Margin="2">Name:</TextBlock>
+            <TextBox Name="TextBoxName" Margin="2"></TextBox>
+            <Button Margin="2" Click="AddImage_Click">Add Image...</Button>
+            <Button Margin="2" Click="AddHuman_Click" >Add</Button>
+        </StackPanel>
+    </Grid>
+</Window>

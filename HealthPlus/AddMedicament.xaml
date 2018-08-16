@@ -1,0 +1,79 @@
+﻿<Window x:Class="HealthPlus.AddMedicament"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthPlus"
+        mc:Ignorable="d"
+        Title="Add Medicament" Height="438.931" Width="425" Closing="Window_Closing" Icon="pill.png">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CustomButton.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <StackPanel CanVerticallyScroll="True" DockPanel.Dock="Top">
+                <Grid Height="Auto" Background="Coral" MinHeight="35">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="6*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Margin="1" Click="BackButton_Click">Back</Button>
+                    <Button Grid.Column="2" Margin="1" Click="ButtonDone_Click" >Done</Button>
+                </Grid>
+                <ComboBox Name="ComboBoxPeople" Margin="2" SelectionChanged="Selector_OnSelectionChanged"></ComboBox>
+                <ComboBox Name="ComboBoxMedicament" Margin="2 0 2 2" Background="AliceBlue" SelectionChanged="Selector_OnSelectionChanged"/>
+                <TextBox Margin="2" ToolTip="Real name of medicament" Name="TextBoxTitle"></TextBox>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="4*"></ColumnDefinition>
+                        <ColumnDefinition Width="4*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Name="ImageMedicament" Margin="2" Source="pill.png" Stretch="UniformToFill"></Image>
+                    <TextBox Name="TextBoxCountMedicament"  Grid.Column="1" Margin="2" TextAlignment="Right" TextDecorations="Underline" TextChanged="Selector_OnSelectionChanged"></TextBox>
+                    <ComboBox Name="ComboBoxCountName"  Grid.Column="2" Margin="2" SelectionChanged="Selector_OnSelectionChanged"></ComboBox>
+                </Grid>
+                <UniformGrid Columns="2" Background="AliceBlue">
+                    <TextBlock Margin="2" TextAlignment="Center" VerticalAlignment="Center">beginning with:</TextBlock>
+                    <DatePicker Name="DatePickerStartDate" Margin="2"/>
+                </UniformGrid>
+                <UniformGrid Columns="2">
+                    <UniformGrid Rows="3" HorizontalAlignment="Center" RadioButton.Checked="ToggleButton_OnChecked">
+                        <RadioButton Name="EveryDay" Margin="2" IsChecked="True">Every day</RadioButton>
+                        <RadioButton Name="OnCertainDays" Margin="2">On certain days</RadioButton>
+                        <RadioButton Name="DailyInterval" Margin="2">Daily interval</RadioButton>
+                    </UniformGrid>
+                    <Grid Name="ListBoxOrTextBoxOrNothing" VerticalAlignment="Center" Margin="2"></Grid>
+                </UniformGrid>
+                <UniformGrid Columns="3" Background="AliceBlue">
+                    <TextBlock TextAlignment="Right" Margin="2">During</TextBlock>
+                    <TextBox Name="TextBoxDuring" Margin="2"></TextBox>
+                    <TextBlock Margin="2">day(s)</TextBlock>
+                </UniformGrid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Margin="2"></Image>
+                    <TextBlock Grid.Column="1" Margin="2" TextAlignment="Center" VerticalAlignment="Center">Time</TextBlock>
+                    <ComboBox Name="ComboBoxTimesOfADay"  Grid.Column="2" Margin="2">
+
+                    </ComboBox>
+                    <TextBlock Grid.Column="3" Margin="2" TextAlignment="Left" VerticalAlignment="Center">a day</TextBlock>
+                </Grid>
+            </StackPanel>
+            <DockPanel MinHeight="40" Margin="2" Background="AliceBlue" DockPanel.Dock="Bottom">
+                <TextBlock DockPanel.Dock="Left" Margin="2">Notes</TextBlock>
+                <TextBox Name="TextBoxNotes"  DockPanel.Dock="Right" Margin="2" TextChanged="Selector_OnSelectionChanged"></TextBox>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>
